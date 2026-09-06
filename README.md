@@ -15,7 +15,7 @@ skillary-agents/
 ├── AGENTS.md              # the protocol — every host reads this first
 ├── README.md
 ├── LICENSE                # MIT
-├── VERSION                # 4.0.0
+├── VERSION                # 3.0.0
 ├── capabilities.md        # host-neutral tool vocabulary + per-host map
 ├── roles/                 # role templates — no skill names, ever
 │   ├── scout.md
