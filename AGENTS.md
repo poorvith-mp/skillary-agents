@@ -61,8 +61,8 @@ Match goal + scout findings against `index/skills.json`. Cross-category by
 default: a launch pulls marketing, business, finance and writing.
 
 Read the goal's constraints from how the user phrased it. "Organic" or "no
-budget" means `paid-campaigns` and `ad-creative` are out and
-`directory-submissions`, `community`, `launch` and `social-content` are in.
+budget" means paid-acquisition skills are excluded and the zero-cost distribution
+group is preferred.
 
 ### 4. Propose — then stop
 

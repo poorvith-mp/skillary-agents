@@ -111,17 +111,35 @@ def main() -> int:
         try:
             skills = json.loads(index_file.read_text(encoding="utf-8"))
             known_slugs = {s.get("name") or s.get("slug") for s in skills if isinstance(s, dict)}
-            # Check that no role or playbook names a skill slug directly
-            for doc_path in list(roles_dir.glob("*.md")) + list(playbooks_dir.glob("*.md")):
+            # Check that AGENTS.md, roles, and playbooks do not name a skill slug directly
+            docs_to_check = [root / "AGENTS.md"] + list(roles_dir.glob("*.md")) + list(playbooks_dir.glob("*.md"))
+            for doc_path in docs_to_check:
+                if not doc_path.exists():
+                    continue
                 doc_text = doc_path.read_text(encoding="utf-8")
-                for slug in known_slugs:
-                    if not slug or len(slug) < 4:
-                        continue
-                    # Match slug when written as code token `slug`
-                    if f"`{slug}`" in doc_text:
-                        errors.append(
-                            f"{doc_path.name}: names skill slug '{slug}' directly"
-                        )
+                ticked = set(re.findall(r"`([a-z0-9][a-z0-9-]+)`", doc_text))
+                violations = ticked & known_slugs
+                for v in sorted(violations):
+                    errors.append(f"{doc_path.name}: names skill slug '{v}' directly")
+
+            # Check that every playbook group reference resolves to active skills
+            known_groups = {(s.get("repo", "").replace("skills-", ""), s.get("group", "")) for s in skills if s.get("group")}
+            for pb_path in playbooks_dir.glob("*.md"):
+                if pb_path.name.startswith("_"):
+                    continue
+                for line in pb_path.read_text(encoding="utf-8").splitlines():
+                    if "|" in line:
+                        parts = [x.strip() for x in line.split("|")]
+                        if len(parts) >= 5 and parts[1].isdigit():
+                            g_col = parts[3]
+                            for g in re.split(r"[,;]\s*", g_col):
+                                g = g.strip()
+                                if ":" in g:
+                                    cat, grp = g.split(":", 1)
+                                    if (cat, grp) not in known_groups:
+                                        errors.append(
+                                            f"{pb_path.name}: playbook group '{g}' does not resolve to active skills in index"
+                                        )
         except Exception as e:
             errors.append(f"Could not validate against index: {e}")
 
