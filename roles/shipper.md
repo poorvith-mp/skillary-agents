@@ -1,5 +1,7 @@
 # Role: Shipper
 
+> Rule: If skillary.lock exists in project root or ~/.claude/, restrict skill selection to locked slugs and print using skillary.lock (N skills).
+
 capabilities: read.file, exec.shell
 workspace: branch
 deliverable: deployment-report.md

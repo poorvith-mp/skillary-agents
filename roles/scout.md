@@ -1,5 +1,7 @@
 # Role: Scout
 
+> Rule: If skillary.lock exists in project root or ~/.claude/, restrict skill selection to locked slugs and print using skillary.lock (N skills).
+
 capabilities: read.file, search.code, read.web
 workspace: inherit
 deliverable: business-brief.md

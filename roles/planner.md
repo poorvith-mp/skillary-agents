@@ -1,5 +1,7 @@
 # Role: Planner
 
+> Rule: If skillary.lock exists in project root or ~/.claude/, restrict skill selection to locked slugs and print using skillary.lock (N skills).
+
 capabilities: read.file
 workspace: inherit
 deliverable: job-plan.md

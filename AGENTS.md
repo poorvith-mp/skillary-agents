@@ -51,6 +51,7 @@ Before selecting anything, find out what you're dealing with:
 - `.skillary/` context files if they exist (`positioning.md`, `voice.md`,
   `context.md`)
 - what stage this is: idea, prototype, live with users, revenue
+- if `skillary.lock` exists in project root or `~/.claude/`, restrict skill selection to locked slugs and print `using skillary.lock (N skills)`.
 
 Ask the user directly for what you can't determine. Do not guess the stage —
 it changes every downstream choice.
