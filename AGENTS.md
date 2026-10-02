@@ -35,6 +35,33 @@ maximum**, then stop and report what's still open. An auditor that edits its
 own findings is not an auditor, and an unbounded fix loop burns an afternoon
 on something it can't fix.
 
+### Dispatch Models
+
+#### Claude Code
+- Tool: `Task` (backgrounded)
+- Workspace: automatic
+- Skills path: `.claude/skills/` or `~/.claude/skills/`
+
+#### Codex / Cursor / CLI
+- Tool: `codex exec` or similar CLI command
+- Workspace: Git worktree per worker
+- Skills path: `.agents/skills/` or `~/.cursor/skills/`
+
+#### Antigravity
+- Tool: `invoke_subagent` (`Role`, `TypeName`, `Prompt`, `Workspace`)
+- Workspace: `branch` for mutating workers, `inherit` for read-only roles
+- Skills path: `.agents/skills/` or `.gemini/skills/`
+
+#### Gemini CLI
+- Tool: `invoke_agent` with `agent_name`
+- Workspace: Automatic sandboxing
+- Skills path: `.gemini/skills/` or `.agents/skills/`
+
+#### Gemini App
+- Skills are managed via the Gemini App UI (gemini.google.com)
+- Import: Upload `SKILL.md` files or `.skill` bundles via Settings → Skills
+- Activation: Slash commands (`/skill-name`) or semantic auto-triggering
+
 ## The loop
 
 ### 1. Classify
@@ -51,7 +78,7 @@ Before selecting anything, find out what you're dealing with:
 - `.skillary/` context files if they exist (`positioning.md`, `voice.md`,
   `context.md`)
 - what stage this is: idea, prototype, live with users, revenue
-- if `skillary.lock` exists in project root or `~/.claude/`, restrict skill selection to locked slugs and print `using skillary.lock (N skills)`.
+- if `skillary.lock` exists in project root, `~/.claude/`, or `~/.gemini/`, restrict skill selection to locked slugs and print `using skillary.lock (N skills)`.
 
 Ask the user directly for what you can't determine. Do not guess the stage —
 it changes every downstream choice.

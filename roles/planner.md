@@ -1,6 +1,6 @@
 # Role: Planner
 
-> Rule: If skillary.lock exists in project root or ~/.claude/, restrict skill selection to locked slugs and print using skillary.lock (N skills).
+> Rule: If skillary.lock exists in project root, ~/.claude/, or ~/.gemini/, restrict skill selection to locked slugs and print using skillary.lock (N skills).
 
 capabilities: read.file
 workspace: inherit
