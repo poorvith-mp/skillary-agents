@@ -2,16 +2,16 @@
 
 Roles declare capabilities. This maps them to host primitives across Claude Code, Antigravity, and Codex / Cursor / CLI.
 
-| Capability | Claude Code | Antigravity | Codex / CLI |
-|---|---|---|---|
-| `read.file` | `Read` | `view_file` | `cat`, `sed -n` |
-| `search.code` | `Grep`, `Glob` | `grep_search`, `find_by_name` | `rg`, `find` |
-| `read.web` | `WebFetch` | `read_url_content` | `curl` |
-| `search.web` | `WebSearch` | `search_web` | provider-specific |
-| `write.file` | `Write` | `write_to_file` | heredoc |
-| `edit.file` | `Edit` | `replace_file_content` | `sed -i`, patch |
-| `exec.shell` | `Bash` | `run_command` | shell |
-| `dispatch` | `Task` | `invoke_subagent` | `git worktree` + CLI worker |
+| Capability | Claude Code | Antigravity | Gemini CLI | Codex / CLI |
+|---|---|---|---|---|
+| `read.file` | `Read` | `view_file` | `read_file` | `cat`, `sed -n` |
+| `search.code` | `Grep`, `Glob` | `grep_search`, `find_by_name` | `grep_search`, `glob` | `rg`, `find` |
+| `read.web` | `WebFetch` | `read_url_content` | `read_url` | `curl` |
+| `search.web` | `WebSearch` | `search_web` | `search_web` | provider-specific |
+| `write.file` | `Write` | `write_to_file` | `write_file` | heredoc |
+| `edit.file` | `Edit` | `replace_file_content` | `replace` | `sed -i`, patch |
+| `exec.shell` | `Bash` | `run_command` | `run_shell_command` | shell |
+| `dispatch` | `Task` | `invoke_subagent` | `invoke_agent` | `git worktree` + CLI worker |
 
 ## Skill Install Paths
 
@@ -21,7 +21,11 @@ Detected per host:
 |---|---|---|
 | Claude Code | `.claude/skills/` | `~/.claude/skills/` |
 | Antigravity | `.agents/skills/` | — |
-| Codex / Cursor / Gemini CLI | `.agents/skills/` | `~/.cursor/skills/`, `~/.gemini/skills/` |
+| Gemini CLI | `.gemini/skills/` or `.agents/skills/` | `~/.gemini/skills/` |
+| Gemini App | — (cloud-based) | Settings → Skills (upload SKILL.md or .skill bundle) |
+| Codex / Cursor | `.agents/skills/` | `~/.cursor/skills/`, `~/.codex/skills/` |
+| Cline | `.cline/skills/` | `~/.cline/skills/` |
+| Roo Code | `.roo/rules/` | `~/.roo/rules/` |
 
 A missing capability means **skip the agent and report it**, never a degraded substitute.
 
@@ -36,3 +40,5 @@ A missing capability means **skip the agent and report it**, never a degraded su
   git worktree remove --force .worktrees/worker-1
   ```
   Read-only workers need no worktree.
+- **Gemini CLI**: `invoke_agent` with `agent_name: "generalist"` (or `@generalist` in chat). The child's prompt carries its mounted skill bodies. Read-only roles skip workspace isolation.
+- **Gemini App**: No dispatch capability — skills are used directly in conversations, not in multi-agent orchestration.

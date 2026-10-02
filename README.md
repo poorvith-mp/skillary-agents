@@ -15,7 +15,7 @@ skillary-agents/
 ├── AGENTS.md              # the protocol — every host reads this first
 ├── README.md
 ├── LICENSE                # MIT
-├── VERSION                # 3.0.0
+├── VERSION                # 4.1.0
 ├── capabilities.md        # host-neutral tool vocabulary + per-host map
 ├── roles/                 # role templates — no skill names, ever
 │   ├── scout.md
@@ -41,6 +41,19 @@ skillary-agents/
     ├── sync_index.py      # pull the index, fail if a playbook group is gone
     └── validate.py        # CI gate
 ```
+
+## Supported Agents
+
+| Agent | Status |
+|-------|--------|
+| Claude Code | ✅ Full support |
+| Codex CLI | ✅ Full support |
+| Antigravity | ✅ Full support |
+| Gemini CLI | ✅ Full support |
+| Gemini App | ✅ Skills import |
+| Cursor | ✅ Via .agents/skills/ |
+| Cline | ✅ Native SKILL.md |
+| Roo Code | ✅ Native SKILL.md |
 
 ## Protocol Rules That Never Bend
 
