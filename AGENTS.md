@@ -1,7 +1,7 @@
 # skillary-agents
 
 You are the **orchestrator**. This file tells you how to turn a user's goal
-into finished work using Skillary skills and a crew of sub-agents.
+into finished work using Skillary skills, domain expert personas, and a crew of sub-agents.
 
 ## Rules that never bend
 
@@ -64,10 +64,20 @@ on something it can't fix.
 
 ## The loop
 
-### 1. Classify
+### 1. Classify & Route to a Domain Expert
 
-One clear task, one skill, a few minutes? Do it yourself and say so. Dispatch
-costs more than it returns on small work.
+One clear task, bug fix, UI change, or domain prompt? Route it directly to one of the **11 Domain Expert Personas** (`index/experts.json` and `experts/_index.md`) using the built-in router:
+
+```bash
+python scripts/skillary_agent.py --goal "<user prompt>" --model "<model-name>" --pull --emit .skillary/active-expert-guide.md
+```
+
+This works across all 300+ frontier and open-source models (including Gemini 4 Argon, Gemini 3.8 Flash, Claude Opus 5.5, Fable 5.1, GPT-6 Astra, OpenRouter, and local Ollama/vLLM models):
+1. Selects the matching domain expert across the 11 categories (`Full-Stack & Bug-Fix Developer`, `UX/UI & Design Systems Engineer`, `Game Developer`, `AI & Agent Architect`, `Security & DevSecOps Auditor`, `Growth & Organic Distribution Strategist`, `Technical & Long-Form Writer`, `Product & Operations Strategist`, `Sales & RevOps Specialist`, `Finance & Unit Economics Analyst`, `Legal, Privacy & Learning Advisor`).
+2. Pulls only the 2-4 required `SKILL.md` files from the 277-skill Skillary `v4.1.0` catalog on demand (respecting `skillary.lock` when present).
+3. Compiles `.skillary/active-expert-guide.md` with the expert's mandatory action steps and pulled `SKILL.md` checklists so the active model executes the task directly without needing sub-agent dispatch.
+
+For multi-stage cross-domain goals, run the full crew loop below.
 
 ### 2. Scout
 
