@@ -2,6 +2,8 @@ __pycache__/
 *.pyc
 work/
 .worktrees/
+.skillary/
+.agents/
 
 # Environment & Secrets
 .env
