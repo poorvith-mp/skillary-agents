@@ -1,0 +1,180 @@
+[
+  {
+    "id": "fullstack-bugfix-dev",
+    "title": "Full-Stack & Bug-Fix Developer",
+    "categories": ["developer"],
+    "groups": ["Build", "Quality", "Migrate and modernise", "Ship and run", "Understand and design"],
+    "intent_keywords": [
+      "bug", "fix", "error", "crash", "exception", "stacktrace", "debug", "broken",
+      "failing", "test", "unit", "integration", "refactor", "api", "backend", "server",
+      "database", "sql", "migration", "performance", "latency", "memory", "leak",
+      "ci", "pipeline", "deploy", "docker", "typescript", "python", "node", "rust", "go"
+    ],
+    "default_action_steps": [
+      "Reproduce and trace the failure or requirement end-to-end before editing any file.",
+      "Load the matched Skillary SKILL.md checklists and apply the smallest root-cause change.",
+      "Run the automated test suite and verify exit code 0 before reporting completion."
+    ]
+  },
+  {
+    "id": "ux-ui-design-engineer",
+    "title": "UX/UI & Design Systems Engineer",
+    "categories": ["design", "developer"],
+    "groups": ["Interface", "Design system", "Implementation", "Brand", "Direction", "Research and evaluation", "Domain-specific"],
+    "intent_keywords": [
+      "ui", "ux", "design", "frontend", "component", "css", "tailwind", "layout",
+      "responsive", "mobile", "accessibility", "wcag", "aria", "contrast", "typography",
+      "token", "theme", "dark", "light", "animation", "motion", "figma", "wireframe",
+      "onboarding", "modal", "form", "navigation", "dashboard", "landing"
+    ],
+    "default_action_steps": [
+      "Audit existing design tokens, layout constraints, and keyboard/screen-reader accessibility first.",
+      "Apply the pulled UX/UI and design-system SKILL.md instructions using native platform primitives before adding dependencies.",
+      "Verify responsive layout states, focus visibility, and semantic markup."
+    ]
+  },
+  {
+    "id": "game-developer",
+    "title": "Game Developer",
+    "categories": ["gamedev"],
+    "groups": ["Engineering", "Unity", "Unreal", "3D assets", "Art and audio", "Craft", "Plan"],
+    "intent_keywords": [
+      "game", "gamedev", "unity", "unreal", "godot", "shader", "hlsl", "glsl", "mesh",
+      "physics", "collision", "raycast", "sprite", "tilemap", "frame", "fps", "npc",
+      "pathfinding", "navmesh", "audio", "sfx", "rigging", "level", "multiplayer", "netcode"
+    ],
+    "default_action_steps": [
+      "Identify the target engine, frame-time budget, and asset pipeline constraints.",
+      "Follow the pulled gamedev SKILL.md architecture and profiling checklists without allocating in hot update loops.",
+      "Verify frame stability, deterministic physics/state transitions, and build output."
+    ]
+  },
+  {
+    "id": "ai-agent-architect",
+    "title": "AI & Agent Architect",
+    "categories": ["agents", "developer"],
+    "groups": ["Agent design", "Prompts and skills", "Retrieval", "Tooling agents call", "Workflow automation", "Outputs", "Data and AI"],
+    "intent_keywords": [
+      "agent", "llm", "prompt", "system", "rag", "embedding", "vector", "retrieval",
+      "mcp", "tool", "orchestrator", "subagent", "eval", "hallucination", "token",
+      "context", "workflow", "n8n", "automation", "model", "fine-tune", "inference"
+    ],
+    "default_action_steps": [
+      "Define strict mechanical boundaries, tool schemas, and token budgets before authoring prompts.",
+      "Apply the pulled agent-architecture and retrieval SKILL.md checklists.",
+      "Run deterministic routing or evaluation checks to confirm the agent obeys hard boundaries."
+    ]
+  },
+  {
+    "id": "security-devsecops-auditor",
+    "title": "Security & DevSecOps Auditor",
+    "categories": ["developer", "legal"],
+    "groups": ["Security", "Repo hygiene", "Compliance"],
+    "intent_keywords": [
+      "security", "vulnerability", "cve", "exploit", "xss", "csrf", "sqli", "injection",
+      "auth", "oauth", "jwt", "password", "secret", "leak", "token", "encryption",
+      "audit", "pentest", "soc2", "iso27001", "hipaa", "gdpr", "threat", "permission", "lock"
+    ],
+    "default_action_steps": [
+      "Scan trust boundaries, secret exposure surfaces, authentication flows, and dependency inputs.",
+      "Cross-check every finding against the pulled security and compliance SKILL.md checklists.",
+      "Remediate root-cause vulnerabilities and add a regression check that fails if the boundary breaks."
+    ]
+  },
+  {
+    "id": "growth-distribution-strategist",
+    "title": "Growth & Organic Distribution Strategist",
+    "categories": ["marketing"],
+    "groups": ["Distribution", "Search and AI discovery", "Website conversion", "Content", "Foundation", "Measurement", "Assets", "Earned and partnerships", "Lifecycle", "Offer and money", "Operating layer", "Paid", "Platform and naming"],
+    "intent_keywords": [
+      "marketing", "growth", "seo", "aeo", "launch", "distribution", "conversion", "cro",
+      "funnel", "traffic", "analytics", "retention", "churn", "positioning", "messaging",
+      "social", "twitter", "linkedin", "newsletter", "community", "virality", "pricing"
+    ],
+    "default_action_steps": [
+      "Identify the audience, current traction stage, and distribution constraints (such as zero-cost organic vs paid).",
+      "Execute the pulled marketing and conversion SKILL.md playbooks with concrete metrics and hooks.",
+      "Review every output for clear positioning, measurable attribution, and zero filler."
+    ]
+  },
+  {
+    "id": "technical-longform-writer",
+    "title": "Technical & Long-Form Writer",
+    "categories": ["writing"],
+    "groups": ["Documents", "Long form", "Voice and quality", "Research support", "Repurposing and translation", "Workplace"],
+    "intent_keywords": [
+      "write", "writing", "article", "blog", "essay", "documentation", "docs", "readme",
+      "changelog", "tutorial", "guide", "copy", "edit", "proofread", "tone", "voice",
+      "research", "summary", "report", "whitepaper", "post-mortem"
+    ],
+    "default_action_steps": [
+      "Establish the target reader, primary claim, and sourced data points before drafting.",
+      "Follow the pulled writing and documentation SKILL.md rules for structure, rhythm, and clarity.",
+      "Strip vague filler, verify every technical claim or command, and check formatting."
+    ]
+  },
+  {
+    "id": "product-operations-strategist",
+    "title": "Product & Operations Strategist",
+    "categories": ["business"],
+    "groups": ["Product and delivery", "Strategy", "Operations", "People", "Reporting"],
+    "intent_keywords": [
+      "product", "roadmap", "spec", "prd", "strategy", "operations", "ops", "kpi",
+      "okr", "hiring", "team", "interview", "onboarding", "process", "delivery",
+      "stakeholder", "prioritization", "competitor", "market"
+    ],
+    "default_action_steps": [
+      "Clarify the business stage, user pain point, and operational bottleneck.",
+      "Apply the pulled product and operations SKILL.md frameworks to scope deliverables.",
+      "Produce an actionable decision document with clear owners, scope boundaries, and success criteria."
+    ]
+  },
+  {
+    "id": "sales-revops-specialist",
+    "title": "Sales & RevOps Specialist",
+    "categories": ["sales", "marketing"],
+    "groups": ["Pipeline", "Enablement", "Bidding", "Post-sale", "Sales handoff"],
+    "intent_keywords": [
+      "sales", "outbound", "prospecting", "discovery", "demo", "objection", "proposal",
+      "rfp", "bidding", "deal", "crm", "pipeline", "closing", "enterprise", "account",
+      "customer", "expansion", "upsell", "handoff"
+    ],
+    "default_action_steps": [
+      "Map the buyer profile, deal stage, and concrete qualification criteria.",
+      "Apply the pulled sales and enablement SKILL.md playbooks to craft buyer-focused assets.",
+      "Verify next-step commitments, objection handling, and handoff readiness."
+    ]
+  },
+  {
+    "id": "finance-economics-analyst",
+    "title": "Finance & Unit Economics Analyst",
+    "categories": ["finance", "business"],
+    "groups": ["Modelling", "Accounting", "Investing", "Tax", "Fundraising and board"],
+    "intent_keywords": [
+      "finance", "financial", "budget", "forecast", "runway", "burn", "cashflow",
+      "arr", "mrr", "ltv", "cac", "margin", "unit", "economics", "valuation",
+      "fundraise", "pitch", "deck", "investor", "board", "accounting", "tax", "cap-table"
+    ],
+    "default_action_steps": [
+      "Audit the underlying assumptions, time horizons, and unit-economic drivers.",
+      "Build or verify the analysis using the pulled finance and fundraising SKILL.md checklists.",
+      "Cross-check arithmetic consistency, sensitivity bounds, and downside scenarios."
+    ]
+  },
+  {
+    "id": "legal-privacy-learning-advisor",
+    "title": "Legal, Privacy & Learning Advisor",
+    "categories": ["legal", "education", "personal"],
+    "groups": ["Contracts", "Product and website", "Intellectual property", "Company", "Compliance", "Learning", "Teaching and planning", "Assessment", "Research", "Knowledge and productivity", "Career", "Habits and health", "Identity", "Life admin", "Hobby"],
+    "intent_keywords": [
+      "legal", "contract", "nda", "terms", "tos", "privacy", "policy", "license",
+      "ip", "trademark", "copyright", "incorporation", "curriculum", "course",
+      "study", "syllabus", "lesson", "quiz", "exam", "career", "resume", "productivity"
+    ],
+    "default_action_steps": [
+      "Determine the jurisdiction, institutional context, or learning goal before drafting.",
+      "Follow the pulled legal, education, or personal SKILL.md structured templates and checklists.",
+      "Flag any clause requiring licensed legal review and verify completeness against the checklist."
+    ]
+  }
+]
